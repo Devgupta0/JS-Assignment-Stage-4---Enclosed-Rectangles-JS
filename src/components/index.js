@@ -54,8 +54,8 @@ function contains(rec1,rec2){
 	return false;
 
 }
-const T = 0;
-const W = 0;
+const T = 10000;
+const W = 10000;
 function normalize(rec){
 	return {
 		x1 : rec.top ? parseInt(rec.top): (T - (parseInt(rec.bottom) + parseInt(rec.height))),
