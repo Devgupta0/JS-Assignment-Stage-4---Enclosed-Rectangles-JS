@@ -49,7 +49,7 @@ function contains(rec1,rec2){
 	const recAn = normalize(rec1);
 	const recBn = normalize(rec2);
 	if(
-		recAn.x1 <= recBn.x1
+		 recAn.x1 <= recBn.x1
 		&& recAn.y1 <= recBn.y1
 		&& recAn.x2 >= recBn.x2
 		&& recAn.y2 >= recBn.y2){
@@ -63,7 +63,7 @@ const W = 0;
 function normalize(rec){
 	return {
 		x1 : rec.top ? parseInt(rec.top): (T - (parseInt(rec.bottom) + parseInt(rec.height))),
-		y1 : rec.left ? parse(rec.left): (W - (parseInt(rec.right) + parseInt(rec.width))),
+		y1 : rec.left ? parseInt(rec.left): (W - (parseInt(rec.right) + parseInt(rec.width))),
 		x2 : rec.bottom ? (T - parseInt(rec.bottom)): (parseInt(rec.top) + parseInt(rec.height)),
 		y2 : rec.right ? (W- parseInt(rec.right)) : (parseInt(rec.left) + parseInt(rec.width))
 	}
