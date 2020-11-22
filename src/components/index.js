@@ -8,10 +8,10 @@
 function updateStructure(rec1,rec2){
 	if(contains(rec1,rec2)){
 		const relativeDm = relative(rec1,rec2);
-		return {...rec1,children : {relativeDm}};
+		return {...rec1,children : [relativeDm]};
 	}else if(contains(rec2,rec1)){
 		const relativeDm = relative(rec2,rec1);
-		return {...rec2,children : {relativeDm}};
+		return {...rec2,children : [relativeDm]};
 	}else {
 		return { ...rec1 };
 	}
@@ -48,14 +48,18 @@ function relative(rec1,rec2){
 function contains(rec1,rec2){   
 	const recAn = normalize(rec1);
 	const recBn = normalize(rec2);
-	if(recAn.x1 <= recBn.x1 && recAn.y1 <= recBn.y1 && recAn.x2 >= recBn.x2 && recAn.y2 >= recBn.y2){
+	if(
+		recAn.x1 <= recBn.x1
+		&& recAn.y1 <= recBn.y1
+		&& recAn.x2 >= recBn.x2
+		&& recAn.y2 >= recBn.y2){
 		return true;
 	}
 	return false;
 
 }
-const T = 10000;
-const W = 10000;
+const T = 0;
+const W = 0;
 function normalize(rec){
 	return {
 		x1 : rec.top ? parseInt(rec.top): (T - (parseInt(rec.bottom) + parseInt(rec.height))),
