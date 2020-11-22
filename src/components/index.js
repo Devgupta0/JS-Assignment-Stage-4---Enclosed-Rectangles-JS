@@ -45,7 +45,7 @@ function relative(rec1,rec2){
 
 }
 
-function contains(rec1,rec2){
+function contains(rec1,rec2){   
 	const recAn = normalize(rec1);
 	const recBn = normalize(rec2);
 	if(recAn.x1 <= recBn.x1 && recAn.y1 <= recBn.y1 && recAn.x2 >= recBn.x2 && recAn.y2 >= recBn.y2){
@@ -54,6 +54,8 @@ function contains(rec1,rec2){
 	return false;
 
 }
+const T = 0;
+const W = 0;
 function normalize(rec){
 	return {
 		x1 : rec.top ? parseInt(rec.top): (T - (parseInt(rec.bottom) + parseInt(rec.height))),
